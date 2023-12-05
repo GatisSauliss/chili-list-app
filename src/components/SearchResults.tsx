@@ -14,34 +14,18 @@ interface ResultsProps {
 const SearchResults = ({ results }: ResultsProps) => {
   return (
     <div className="mt-4 flex flex-col items-center justify-center">
-      
+
       {results.map((result, id: number) => {
         return (
-          <div
-            key={id}
-            className=" hover:bg-slate-200 p-2 w-1/2 text-center rounded transition-all duration-200"
-          >
-           
-           <Link to={`/products/${result.id}`}>
-            <p>text</p>
-              </Link>
-     
-              
-        
-
-             <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-      aria-label="contacts"
-    >
-            <ListItem disablePadding>
-              {/* <Link to={`/products/${result.id}`}>
-              </Link> */}
-              <ListItemButton  onClick={() => alert(`You click on ${result.name}`)}>
-          <ListItemText inset primary={result.name + " " + result.price + " " + result.currency +" " + result.category} />
+          <div key={id} className="w-full -mt-4">
+             <List aria-label="products" className="flex pt-10 bg-zinc-50">
+            <ListItem disablePadding className="flex hover:bg-orange-300 -mt-2">
+            <Link to={`/products/${result.id}`} >
+              <ListItemButton className="w-screen flex shadow-inner">
+          <ListItemText className="w-auto flex-nowrap text-justify" inset primary={result.name + " ("+ result.category + ")"} />
+          <ListItemText primaryTypographyProps={{fontSize: '14px'}} className="w-auto flex-nowrap ml-3 text-orange-800  text-right pr-20" primary={result.price + " " + result.currency}/>
         </ListItemButton>
-
-              
-        
+        </Link>
       </ListItem>
     </List>
 

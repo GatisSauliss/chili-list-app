@@ -43,26 +43,19 @@ const SearchBar = ({ setResults }: SearchBarProps) => {
   };
 
   return (
-    <div
-      className="flex-row flex justify-center content-center p-4
-     bg-green-600 rounded shadow-lg shadow-slate-300 w-full"
+    //bg-gradient-to-r from-orange-400 to-rose-400
+    <div className="flex p-5 px-20 bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500"
     >
-  <TextField 
-  id="standard-basic" 
-  label="Search" 
-  variant="standard" 
+  <TextField
+  className='flex-auto'
+  color="warning"
+  id="standard-basic"
+  label="Search"
+  variant="standard"
   type="text"
   placeholder="Type to search..."
   value={input}
   onChange={(e) => handleChange(e.target.value)} />
-
-      {/* <input
-        type="text"
-        placeholder="Type to search..."
-        value={input}
-        onChange={(e) => handleChange(e.target.value)}
-        className="p-2 rounded-e focus:outline-none placeholder-green-600 font-semibold"
-      /> */}
     </div>
   );
 };

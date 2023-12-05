@@ -1,11 +1,8 @@
 import Home from './components/pages/Home'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-
-import './App.css'
 import ProductCard from './components/ProductCard';
 
 function App() {
-
 
   return (
     <>
