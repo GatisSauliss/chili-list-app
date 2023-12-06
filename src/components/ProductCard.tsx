@@ -1,7 +1,7 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography, Button } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {useParams} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 
 interface iResponse{
   id: number;
@@ -25,27 +25,31 @@ const filteredProduct= (pros?.filter(products => products.id === idNumber));
 
   return(
   <div className="App">
-   <h1 className="ml-20 mt-10 mb-3 text-lg ">Product details:</h1>
+
      {filteredProduct
      ? filteredProduct.map((pro)=>{
       return (
         <>
-        <Card sx={{ minWidth: 275 }}>
-      <CardContent className="border-4 ml-20 mr-20 mb-20 bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500">
-
-        <Typography variant="h5" component="div">
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        {pro.category +": " + pro.name}
-        </Typography>
-        <Typography sx={{ mb: 2.5 }} variant="body2">
-          {pro.description}
-        </Typography>
-        <Typography  variant="body2">
-          {pro.price + " "+ pro.currency}
-        </Typography>
-      </CardContent>
+        <Card sx={{ minWidth: 275 }}className=" mt-10" >
+            <CardContent className="border-2 rounded-lg border-orange-300  ml-20 mr-20 mb-10 bg-gradient-to-b from-blue-300 via-blue-100 to-blue-300">
+                  <Typography sx={{ mb: 1.5 }} className="text-orange-600">
+                  {pro.category +": " + pro.name}
+                  </Typography>
+                  <Typography sx={{ mb: 2.5 }} variant="body2">
+                    {pro.description}
+                  </Typography>
+                  <Typography  variant="body2" className="text-orange-800">
+                    {"Price: " + pro.price + " "+ pro.currency}
+                  </Typography>
+            </CardContent>
     </Card>
+        <div className="ml-20">
+            <Link to={'/'} >
+                <Button  size="medium"  >
+                  Return to list
+                </Button>
+            </Link>
+        </div>
         </>
       )
     })
